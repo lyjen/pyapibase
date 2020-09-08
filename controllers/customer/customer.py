@@ -27,9 +27,9 @@ class Customer(Common):
             description: Token
             required: true
             type: string
-          - name: customerid
+          - name: userid
             in: header
-            description: Customer ID
+            description: User ID
             required: true
             type: string
           - name: limit
@@ -52,12 +52,12 @@ class Customer(Common):
 
         # GET DATA
         token = request.headers.get('token')
-        customerid = request.headers.get('customerid')
+        userid = request.headers.get('userid')
         page = int(request.args.get('page'))
         limit = int(request.args.get('limit'))
 
         # CHECK TOKEN
-        token_validation = self.validate_token(token, customerid)
+        token_validation = self.validate_token(token, userid)
 
         if not token_validation:
             data["alert"] = "Invalid Token"
