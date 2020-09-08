@@ -71,6 +71,7 @@ class Customer(Common):
 
         return self.return_data(datas)
 
+
     def get_customers(self, page, limit):
         """Return Customers"""
 
